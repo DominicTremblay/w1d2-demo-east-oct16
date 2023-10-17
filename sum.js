@@ -28,24 +28,26 @@ if (args.length < 2) {
 // initialize container variable for the sum
 let total = 0;
 
-for (let arg of args) {
+for (const arg of args) {
   // sum each number (+)
   // Edge case: If any argument is not a number, output an error message.
 
-  if (isNaN(Number(arg))) {
+  const convertedNum = Number(arg);
+
+  if (isNaN(convertedNum)) {
     console.error(`Error: please enter only numbers`);
     process.exit();
   }
 
   // Edge case: If any argument is not a whole number, skip it.
   // typeof?
-  // mod => Number(arg) % 1 === 0
+  // mod => convertedNum % 1 === 0
 
-  if (Number.isInteger(Number(arg))) {
-    total += Number(arg); // typecasting
+  if (Number.isInteger(convertedNum)) {
+    total += convertedNum; // typecasting
   }
 
-  console.log('arg:', arg, 'type of arg:', typeof Number(arg), 'total:', total);
+  console.log('arg:', arg, 'type of arg:', typeof convertedNum, 'total:', total);
 }
 
 // print the total
